@@ -36,7 +36,7 @@ void selection_sort(int a[], int n){
     int i,j,min,temp;
     for(i=0;i<n;i++){
         min= i;
-        for(j=i+1;j<n-1;j++){
+        for(j=i+1;j<n;j++){
             if(a[j]<a[min])
                 min=j;                
         }
@@ -79,6 +79,7 @@ void main()
     
     t = clock();
     insertion_sort(a, n);
+    ///selection_sort(a, n);
     t = clock() - t;
     double time_taken = ((double)t/CLOCKS_PER_SEC)*1000; // in  milliseconds
     printf("The sorted array is : \n");
