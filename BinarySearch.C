@@ -1,35 +1,26 @@
-#include<stdio.h>
-int binary_search(int A[], int key, int len) {
-    int low = 0;
-    int high = len -1;
-    while (low <= high) {
-        int mid = low + ((high - low) / 2);
-        if (A[mid] == key) {
+#include <stdio.h>
+
+int binarySearch(int arr[], int low, int high, int target) {
+    if (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == target)
             return mid;
-        }
-        if (key < A[mid]) {
-            high = mid - 1;
-        }
-        else {
-            low = mid + 1;
-        }
+        else if (arr[mid] > target)
+            return binarySearch(arr, low, mid - 1, target);
+        else
+            return binarySearch(arr, mid + 1, high, target);
     }
-    return -1;
+    return -1;  // Target element not found
 }
+
 int main() {
-    int a[10];
-    int i;
-    printf("Enter the numbers:\n");
-    for(i=0;i<10;i++)
-        scanf("%d",&a[i]);
-    int key;
-    printf("Enter the number to be searched: ");
-    scanf("%d",&key);
-    int position = binary_search(a, key, 10);
-    if (position == -1){
-        printf("Not found");
-        return 0;
-    }
-    printf("Found it at %dth index", position);
+    int arr[] = {2, 5, 8, 12, 16, 23, 38, 56, 72, 91};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int target = 23;
+    int index = binarySearch(arr, 0, n - 1, target);
+    if (index != -1)
+        printf("Element %d found at index %d\n", target, index);
+    else
+        printf("Element %d not found in the array\n", target);
     return 0;
 }
