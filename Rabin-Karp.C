@@ -36,7 +36,7 @@ void rabinKarp(char pattern[], char text[], int q) {
   }
 }
  
-int main() {
+void main() {
   char text[] = "ABCCDDAEFG";
   char pattern[] = "CDD";
   int q = 13;

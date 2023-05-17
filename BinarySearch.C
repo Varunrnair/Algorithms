@@ -10,7 +10,7 @@ int binarySearch(int arr[], int low, int high, int target) {
         else
             return binarySearch(arr, mid + 1, high, target);
     }
-    return -1;  // Target element not found
+    return -1; 
 }
 
 int main() {
