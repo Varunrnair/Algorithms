@@ -38,7 +38,7 @@ void mColoring(int k){
         }
     }
 }
-int main()
+void main()
 {
     printf("Enter Number of Vertices: ");
     scanf("%d",&n);
